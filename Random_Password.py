@@ -1,5 +1,4 @@
-from random import choice
-
+import random
 def random_password(data: list[int, str]) -> str:
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                 'v', 'w', 'x', 'y', 'z',
@@ -10,5 +9,5 @@ def random_password(data: list[int, str]) -> str:
     alphabet.extend(symbols)
     PASSWORD = []
     for _ in range(length):
-        PASSWORD.append(choice(alphabet))
+        PASSWORD.append(random.choice(alphabet))
     return ''.join(PASSWORD)

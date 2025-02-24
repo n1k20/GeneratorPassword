@@ -15,15 +15,20 @@ def GeneratePassword():
         while symbols not in ["no", "yes"] or symbols in DATA:
             symbols = input(
                 "Ответьте на вопрос (No/Yes или ваши символы в списке: ").lower()
-    return [int(length), str(symbols)]
+
+    return [int(length), DATA]
 
 data = GeneratePassword()
 def Check(data):
     count = 0
+    print("----------------------------------------")
+    print("PASSWORD GENERATOR")
+    print("________________________________________")
     while count != 20:
         password = ""
         while password_check(password=password) == False:
             password = random_password(data=data)
-            print(password)
         print(password)
+        count += 1
+    print("----------------------------------------")
 Check(data=data)
