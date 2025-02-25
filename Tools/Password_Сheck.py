@@ -15,3 +15,17 @@ def password_check(password: str) -> bool:
     if (data['Upper'] >= 2 and data['Lower'] >= 2 and data['Numbers'] >= 2 and data['Symbols'] >= 2) == True:
         return True
     return False
+
+
+def Check(data):
+    count = 0
+    print("----------------------------------------")
+    print("PASSWORD GENERATOR")
+    print("________________________________________")
+    while count != 20:
+        password = ""
+        while password_check(password=password) == False:
+            password = random_password(data=data)
+        print(password)
+        count += 1
+    print("----------------------------------------")

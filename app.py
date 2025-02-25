@@ -1,34 +1,7 @@
-from Random_Password import random_password
-from Password_Сheck import password_check
-
-def GeneratePassword():
-    length = input("Введите длину пароля: ")
-    DATA = ['!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@',
-            '[', ']', '^', '_`', '{', '|', '}', '~', '(', '"']
-    if length.isdigit() == False and int(length) >= 8:
-        while length.isdigit() == False and int(length) >= 8:
-            length = input("Введите корректную длину пароля (в числах и больше 8, а желательно больше 15): ")
-    symbols = input("Будут ли различные символы по типу . , ? * (No/Yes или введите кастомные знаки): ").lower()
-    if all([letter in DATA for letter in symbols]) or symbols == "'":
-        print("OKey")
-    if symbols not in ["no", "yes"]:
-        while symbols not in ["no", "yes"] or symbols in DATA:
-            symbols = input(
-                "Ответьте на вопрос (No/Yes или ваши символы в списке: ").lower()
-
-    return [int(length), DATA]
+from Tools.Random_Password import random_password
+from Tools.Password_Сheck import password_check
+from Tools.Generate_Password import GeneratePassword
+from Tools.Password_Сheck import Check
 
 data = GeneratePassword()
-def Check(data):
-    count = 0
-    print("----------------------------------------")
-    print("PASSWORD GENERATOR")
-    print("________________________________________")
-    while count != 20:
-        password = ""
-        while password_check(password=password) == False:
-            password = random_password(data=data)
-        print(password)
-        count += 1
-    print("----------------------------------------")
 Check(data=data)
